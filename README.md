@@ -74,6 +74,8 @@ OUTPUT
   Successfully
 ```
 
+This command will generate a `bot.yml`
+
 _See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
 
 ## `thief list-target`
