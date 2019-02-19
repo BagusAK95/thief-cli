@@ -47,7 +47,7 @@
   ],
   "homepage": "https://github.com/BagusAK95/thief-cli",
   "keywords": [
-    "oclif"
+    "web", "scrap", "scraper", "scraping", "crawl", "crawler", "crawling", "cli", "typescript", "cheerio"
   ],
   "license": "MIT",
   "main": "lib/index.js",
