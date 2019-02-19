@@ -40,9 +40,9 @@ This is the preferred method to install thief-cli, as it will always install the
 * [`thief test`](#thief-test)
 * [`thief start`](#thief-start)
 
-## `thief version`
+## thief version
 
-Get version
+Get current version
 
 ```
 USAGE
@@ -52,16 +52,16 @@ OUTPUT
   thief-cli/0.0.1 darwin-x64 node-v8.14.0
 ```
 
-## `thief update`
+## thief update
 
-Update to last version
+Upgrade to last version
 
 ```
 USAGE
   $ thief update
 ```
 
-## `thief init [Target Name]`
+## thief init [Target Name]
 
 Set up new target
 
@@ -76,9 +76,7 @@ OUTPUT
 
 This command will generate a `my-target-3.yml`
 
-_See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
-
-## `thief list-target`
+## thief list-target
 
 Your target list
 
@@ -98,9 +96,7 @@ OUTPUT
   └───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-_See code: [src/commands/list-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-target.ts)_
-
-## `thief select-target`
+## thief select-target
 
 Select your target
 
@@ -118,9 +114,7 @@ OUTPUT
     my-target-3
 ```
 
-_See code: [src/commands/select-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-target.ts)_
-
-## `thief current-target`
+## thief current-target
 
 Your active target
 
@@ -132,9 +126,7 @@ OUTPUT
   Your active target is my-target-1
 ```
 
-_See code: [src/commands/current-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/current-target.ts)_
-
-## `thief delete-target`
+## thief delete-target
 
 Delete your target
 
@@ -152,9 +144,7 @@ OUTPUT
     my-target-3
 ```
 
-_See code: [src/commands/delete-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-target.ts)_
-
-## `thief test`
+## thief test
 
 Test stealing data
 
@@ -174,9 +164,7 @@ OUTPUT
   └───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-_See code: [src/commands/test.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/test.ts)_
-
-## `thief start`
+## thief start
 
 Start stealing data
 
@@ -184,7 +172,5 @@ Start stealing data
 USAGE
   $ thief start
 ```
-
-_See code: [src/commands/start.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/start.ts)_
 
 <!-- commandsstop -->
