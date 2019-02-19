@@ -74,7 +74,7 @@ OUTPUT
   Successfully
 ```
 
-This command will generate a `bot.yml`
+This command will generate a `my-target-3.yml`
 
 _See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
 
