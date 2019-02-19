@@ -28,14 +28,13 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`thief init [Project Name]`](#thief-init-projectname)
-* [`thief list-project`](#thief-list-project-file)
+* [`thief init [Project Name]`](#thief-init)
+* [`thief list-project`](#thief-list-project)
 * [`thief select-project`](#thief-select-project)
-* [`thief current-project`](#thief-current-project-file)
-* [`thief delete-project`](#thief-delete-project-file)
+* [`thief current-project`](#thief-current-project)
+* [`thief delete-project`](#thief-delete-project)
 * [`thief start`](#thief-start)
-* [`thief test`](#thief-test-file)
-* [`thief help`](#thief-help-command)
+* [`thief test`](#thief-test)
 
 ## `thief init [Project Name]`
 
@@ -119,22 +118,5 @@ USAGE
 ```
 
 _See code: [src/commands/test.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/test.ts)_
-
-## `thief help [COMMAND]`
-
-display help for thief
-
-```
-USAGE
-  $ thief help [COMMAND]
-
-ARGUMENTS
-  COMMAND  command to show help for
-
-OPTIONS
-  --all  see all commands in CLI
-```
-
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 
 <!-- commandsstop -->
