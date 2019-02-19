@@ -31,8 +31,8 @@ USAGE
 * [`thief select-project`](#thief-select-project)
 * [`thief current-project`](#thief-current-project)
 * [`thief delete-project`](#thief-delete-project)
-* [`thief start`](#thief-start)
 * [`thief test`](#thief-test)
+* [`thief start`](#thief-start)
 
 ## `thief init [Project Name]`
 
@@ -125,17 +125,6 @@ OUTPUT
 
 _See code: [src/commands/delete-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-project.ts)_
 
-## `thief start`
-
-Start stealing data
-
-```
-USAGE
-  $ thief start
-```
-
-_See code: [src/commands/start.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/start.ts)_
-
 ## `thief test`
 
 Test stealing data
@@ -157,5 +146,16 @@ OUTPUT
 ```
 
 _See code: [src/commands/test.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/test.ts)_
+
+## `thief start`
+
+Start stealing data
+
+```
+USAGE
+  $ thief start
+```
+
+_See code: [src/commands/start.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/start.ts)_
 
 <!-- commandsstop -->
