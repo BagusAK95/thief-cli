@@ -9,9 +9,16 @@ thief-cli
 [![License](https://img.shields.io/npm/l/thief-cli.svg)](https://github.com/BagusAK95/thief-cli/blob/master/package.json)
 
 <!-- toc -->
+* [Introduction](#introduction)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
+# Introduction
+<!-- introduction -->
+Thief Command Line Interface (Thief CLI) is a tool for scraping website and manage data with command line/shell.
+<!-- introductionstop -->
+
 # Usage
 <!-- usage -->
 ```sh-session
