@@ -39,7 +39,7 @@ USAGE
 
 ## `thief init [Project Name]`
 
-set up new project
+Set up new project
 
 ```
 USAGE
@@ -50,7 +50,7 @@ _See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0
 
 ## `thief list-project`
 
-your project list
+Your project list
 
 ```
 USAGE
@@ -61,7 +61,7 @@ _See code: [src/commands/list-project.ts](https://github.com/BagusAK95/thief-cli
 
 ## `thief select-project`
 
-select your project
+Select your project
 
 ```
 USAGE
@@ -75,7 +75,7 @@ _See code: [src/commands/select-project.ts](https://github.com/BagusAK95/thief-c
 
 ## `thief current-project`
 
-your active project
+Your active project
 
 ```
 USAGE
@@ -86,7 +86,7 @@ _See code: [src/commands/current-project.ts](https://github.com/BagusAK95/thief-
 
 ## `thief delete-project`
 
-describe the command here
+Delete your project
 
 ```
 USAGE
@@ -100,7 +100,7 @@ _See code: [src/commands/delete-project.ts](https://github.com/BagusAK95/thief-c
 
 ## `thief start`
 
-start stealing data
+Start stealing data
 
 ```
 USAGE
@@ -111,7 +111,7 @@ _See code: [src/commands/start.ts](https://github.com/BagusAK95/thief-cli/blob/v
 
 ## `thief test`
 
-test stealing data
+Test stealing data
 
 ```
 USAGE
