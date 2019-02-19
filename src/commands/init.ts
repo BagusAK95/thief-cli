@@ -11,7 +11,7 @@ export default class Init extends Command {
 
   async run() {
     const {args} = this.parse(Init)
-    const desc = await cli.prompt('Description:')
+    const desc = await cli.prompt('Description')
 
     if (args.projectName) {
       const template:IProject = {
