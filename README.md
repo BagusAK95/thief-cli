@@ -83,8 +83,8 @@ OPTIONS
   --name=Project Name
 
 OUTPUT
-![#c5f015](https://placehold.it/15/c5f015/000000?text=+)`?` Select a project 
-![#1589F0](https://placehold.it/15/c5f015/000000?text=+)`❯` my-project-1 
+? Select a project 
+❯ my-project-1 
   my-project-2
   my-project-3
 ```
