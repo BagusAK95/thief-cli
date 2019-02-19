@@ -28,46 +28,97 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`thief current-project [FILE]`](#thief-current-project-file)
-* [`thief delete-project [FILE]`](#thief-delete-project-file)
-* [`thief help [COMMAND]`](#thief-help-command)
-* [`thief init [PROJECTNAME]`](#thief-init-projectname)
-* [`thief list-project [FILE]`](#thief-list-project-file)
+* [`thief init [Project Name]`](#thief-init-projectname)
+* [`thief list-project`](#thief-list-project-file)
 * [`thief select-project`](#thief-select-project)
+* [`thief current-project`](#thief-current-project-file)
+* [`thief delete-project`](#thief-delete-project-file)
 * [`thief start`](#thief-start)
-* [`thief test [FILE]`](#thief-test-file)
+* [`thief test`](#thief-test-file)
+* [`thief help`](#thief-help-command)
 
-## `thief current-project [FILE]`
+## `thief init [Project Name]`
 
-describe the command here
+set up new project
 
 ```
 USAGE
-  $ thief current-project [FILE]
+  $ thief init [Project Name]
+```
+
+_See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
+
+## `thief list-project`
+
+your project list
+
+```
+USAGE
+  $ thief list-project
+```
+
+_See code: [src/commands/list-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-project.ts)_
+
+## `thief select-project`
+
+select your project
+
+```
+USAGE
+  $ thief select-project
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  --name=Project Name
+```
+
+_See code: [src/commands/select-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-project.ts)_
+
+## `thief current-project`
+
+your active project
+
+```
+USAGE
+  $ thief current-project
 ```
 
 _See code: [src/commands/current-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/current-project.ts)_
 
-## `thief delete-project [FILE]`
+## `thief delete-project`
 
 describe the command here
 
 ```
 USAGE
-  $ thief delete-project [FILE]
+  $ thief delete-project
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  --name=Project Name
 ```
 
 _See code: [src/commands/delete-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-project.ts)_
+
+## `thief start`
+
+start stealing data
+
+```
+USAGE
+  $ thief start
+```
+
+_See code: [src/commands/start.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/start.ts)_
+
+## `thief test`
+
+test stealing data
+
+```
+USAGE
+  $ thief test
+```
+
+_See code: [src/commands/test.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/test.ts)_
 
 ## `thief help [COMMAND]`
 
@@ -86,71 +137,4 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 
-## `thief init [PROJECTNAME]`
-
-Set up new project
-
-```
-USAGE
-  $ thief init [PROJECTNAME]
-```
-
-_See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
-
-## `thief list-project [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ thief list-project [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/list-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-project.ts)_
-
-## `thief select-project`
-
-Select your project
-
-```
-USAGE
-  $ thief select-project
-
-OPTIONS
-  --name=name
-```
-
-_See code: [src/commands/select-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-project.ts)_
-
-## `thief start`
-
-Start stealing data
-
-```
-USAGE
-  $ thief start
-```
-
-_See code: [src/commands/start.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/start.ts)_
-
-## `thief test [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ thief test [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/test.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/test.ts)_
 <!-- commandsstop -->
