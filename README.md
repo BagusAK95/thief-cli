@@ -43,8 +43,8 @@ USAGE
   $ thief init my-target-3
 
 OUTPUT
-Description: this is for description
-Successfully
+  Description: this is for description
+  Successfully
 ```
 
 _See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
@@ -58,15 +58,15 @@ USAGE
   $ thief list-target
 
 OUTPUT
-┌───────────────┬────────────────────────────────────────────────────────────────────────────────────┐
-│ Target Name   │ Description                                                                        │
-├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-target-1   │ this is for description                                                            │
-├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-target-2   │ this is for description                                                            │
-├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-target-3   │ this is for description                                                            │
-└───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+  ┌───────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+  │ Target Name   │ Description                                                                        │
+  ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+  │ my-target-1   │ this is for description                                                            │
+  ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+  │ my-target-2   │ this is for description                                                            │
+  ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+  │ my-target-3   │ this is for description                                                            │
+  └───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 _See code: [src/commands/list-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-target.ts)_
@@ -83,10 +83,10 @@ OPTIONS
   --name=Target Name
 
 OUTPUT
-? Select a target 
-❯ my-target-1 
-  my-target-2
-  my-target-3
+  ? Select a target 
+  ❯ my-target-1 
+    my-target-2
+    my-target-3
 ```
 
 _See code: [src/commands/select-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-target.ts)_
@@ -100,7 +100,7 @@ USAGE
   $ thief current-target
 
 OUTPUT
-Your active target is my-target-1
+  Your active target is my-target-1
 ```
 
 _See code: [src/commands/current-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/current-target.ts)_
@@ -117,10 +117,10 @@ OPTIONS
   --name=Target Name
 
 OUTPUT
-? Select a target 
-❯ my-target-1 
-  my-target-2
-  my-target-3
+  ? Select a target 
+  ❯ my-target-1 
+    my-target-2
+    my-target-3
 ```
 
 _See code: [src/commands/delete-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-target.ts)_
@@ -134,15 +134,15 @@ USAGE
   $ thief test
 
 OUTPUT
-┌───────────────┬────────────────────────────────────────────────────────────────────────────────────┐
-│ Content       │ Result                                                                             │
-├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-content-1  │ this is for result                                                                 │
-├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-content-2  │ this is for result                                                                 │
-├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-content-3  │ this is for result                                                                 │
-└───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+  ┌───────────────┬────────────────────────────────────────────────────────────────────────────────────┐
+  │ Content       │ Result                                                                             │
+  ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+  │ my-content-1  │ this is for result                                                                 │
+  ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+  │ my-content-2  │ this is for result                                                                 │
+  ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+  │ my-content-3  │ this is for result                                                                 │
+  └───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 _See code: [src/commands/test.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/test.ts)_
