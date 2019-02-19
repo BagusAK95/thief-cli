@@ -1,5 +1,5 @@
 import {Command} from '@oclif/command'
-import Helper from '../class/helper';
+import Helper from '../helper';
 import chalk from 'chalk'
 const Table = require('cli-table')
 const fs = require('fs')

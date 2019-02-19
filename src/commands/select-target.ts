@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import Helper from '../class/helper'
+import Helper from '../helper'
 const inquirer = require('inquirer')
 
 export default class SelectTarget extends Command {

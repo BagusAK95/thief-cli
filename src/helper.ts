@@ -1,4 +1,4 @@
-import { IHelper, JsonObject, Json, JsonArray, IChoise } from "../interfaces/main";
+import { IHelper, JsonObject, Json, JsonArray, IChoise } from "./interface";
 const yaml = require("js-yaml");
 const fs = require("fs");
 const os = require("os");

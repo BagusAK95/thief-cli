@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import Helper from '../class/helper'
+import Helper from '../helper'
 import cli from 'cli-ux'
 const inquirer = require('inquirer')
 const fs = require('fs')

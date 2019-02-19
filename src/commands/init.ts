@@ -1,6 +1,6 @@
 import {Command} from '@oclif/command'
-import {ITarget} from '../interfaces/main';
-import Helper from '../../src/class/helper'
+import {ITarget} from '../interface';
+import Helper from '../helper'
 import cli from 'cli-ux'
 
 export default class Init extends Command {

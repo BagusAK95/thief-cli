@@ -1,5 +1,5 @@
 import {Command} from '@oclif/command'
-import Helper from '../class/helper'
+import Helper from '../helper'
 import chalk from 'chalk';
 
 export default class CurrentTarget extends Command {
