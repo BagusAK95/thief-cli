@@ -16,8 +16,6 @@ thief-cli
 <!-- usage -->
 ```sh-session
 $ npm install -g thief-cli
-$ thief COMMAND
-running command...
 $ thief (-v|--version|version)
 thief-cli/0.0.1 darwin-x64 node-v8.14.0
 $ thief --help [COMMAND]
@@ -42,7 +40,11 @@ Set up new project
 
 ```
 USAGE
-  $ thief init [Project Name]
+  $ thief init my-project-3
+
+OUTPUT
+Description: this is for description
+Successfully
 ```
 
 _See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
@@ -54,6 +56,15 @@ Your project list
 ```
 USAGE
   $ thief list-project
+
+OUTPUT
+┌───────────────┬────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ Project Name  │ Description                                                                                        │
+├───────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ my-project-1  │ this is for description                                                                            │
+├───────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ my-project-2  │ this is for description                                                                            │
+└───────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 _See code: [src/commands/list-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-project.ts)_
@@ -68,6 +79,12 @@ USAGE
 
 OPTIONS
   --name=Project Name
+
+OUTPUT
+? Select a project 
+❯ my-project-1 
+  my-project-2
+  my-project-3
 ```
 
 _See code: [src/commands/select-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-project.ts)_
@@ -79,6 +96,9 @@ Your active project
 ```
 USAGE
   $ thief current-project
+
+OUTPUT
+Your active project is my-project-1
 ```
 
 _See code: [src/commands/current-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/current-project.ts)_
@@ -93,6 +113,12 @@ USAGE
 
 OPTIONS
   --name=Project Name
+
+OUTPUT
+? Select a project 
+❯ my-project-1 
+  my-project-2
+  my-project-3
 ```
 
 _See code: [src/commands/delete-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-project.ts)_
