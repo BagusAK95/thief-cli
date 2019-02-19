@@ -10,7 +10,7 @@ thief-cli
 
 <!-- toc -->
 * [Introduction](#introduction)
-* [Usage](#usage)
+* [Installation](#installation)
 * [Commands](#commands)
 <!-- tocstop -->
 
@@ -19,20 +19,19 @@ thief-cli
 Thief Command Line Interface (Thief CLI) is a tool for scraping website and manage data with command line/shell.
 <!-- introductionstop -->
 
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g thief-cli
-$ thief (-v|--version|version)
-thief-cli/0.0.1 darwin-x64 node-v8.14.0
-$ thief --help [COMMAND]
-USAGE
-  $ thief COMMAND
-...
+# Installation
+<!-- installation -->
+To install thief-cli in global mode, run this command in your terminal:
 ```
-<!-- usagestop -->
+$ npm install -g thief-cli
+```
+This is the preferred method to install thief-cli, as it will always install the most recent stable release.
+<!-- installationstop -->
+
 # Commands
 <!-- commands -->
+* [`thief version`](#thief-version)
+* [`thief update`](#thief-update)
 * [`thief init [Target Name]`](#thief-init)
 * [`thief list-target`](#thief-list-target)
 * [`thief select-target`](#thief-select-target)
@@ -40,6 +39,27 @@ USAGE
 * [`thief delete-target`](#thief-delete-target)
 * [`thief test`](#thief-test)
 * [`thief start`](#thief-start)
+
+## `thief version`
+
+Get version
+
+```
+USAGE
+  $ thief (-v|--version|version)
+
+OUTPUT
+  thief-cli/0.0.1 darwin-x64 node-v8.14.0
+```
+
+## `thief update`
+
+Update to last version
+
+```
+USAGE
+  $ thief update
+```
 
 ## `thief init [Target Name]`
 
