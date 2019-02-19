@@ -20,7 +20,7 @@ export interface rdbms {
     database: string,
     table: string
 }
-export interface IProject {
+export interface ITarget {
     description: string,
     target: {
         uri: string,

@@ -26,21 +26,21 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`thief init [Project Name]`](#thief-init)
-* [`thief list-project`](#thief-list-project)
-* [`thief select-project`](#thief-select-project)
-* [`thief current-project`](#thief-current-project)
-* [`thief delete-project`](#thief-delete-project)
+* [`thief init [Target Name]`](#thief-init)
+* [`thief list-target`](#thief-list-target)
+* [`thief select-target`](#thief-select-target)
+* [`thief current-target`](#thief-current-target)
+* [`thief delete-target`](#thief-delete-target)
 * [`thief test`](#thief-test)
 * [`thief start`](#thief-start)
 
-## `thief init [Project Name]`
+## `thief init [Target Name]`
 
-Set up new project
+Set up new target
 
 ```
 USAGE
-  $ thief init my-project-3
+  $ thief init my-target-3
 
 OUTPUT
 Description: this is for description
@@ -49,81 +49,81 @@ Successfully
 
 _See code: [src/commands/init.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/init.ts)_
 
-## `thief list-project`
+## `thief list-target`
 
-Your project list
+Your target list
 
 ```
 USAGE
-  $ thief list-project
+  $ thief list-target
 
 OUTPUT
 ┌───────────────┬────────────────────────────────────────────────────────────────────────────────────┐
-│ Project Name  │ Description                                                                        │
+│ Target Name  │ Description                                                                        │
 ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-project-1  │ this is for description                                                            │
+│ my-target-1  │ this is for description                                                            │
 ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-project-2  │ this is for description                                                            │
+│ my-target-2  │ this is for description                                                            │
 ├───────────────┼────────────────────────────────────────────────────────────────────────────────────┤
-│ my-project-3  │ this is for description                                                            │
+│ my-target-3  │ this is for description                                                            │
 └───────────────┴────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-_See code: [src/commands/list-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-project.ts)_
+_See code: [src/commands/list-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/list-target.ts)_
 
-## `thief select-project`
+## `thief select-target`
 
-Select your project
+Select your target
 
 ```
 USAGE
-  $ thief select-project
+  $ thief select-target
 
 OPTIONS
-  --name=Project Name
+  --name=Target Name
 
 OUTPUT
-? Select a project 
-❯ my-project-1 
-  my-project-2
-  my-project-3
+? Select a target 
+❯ my-target-1 
+  my-target-2
+  my-target-3
 ```
 
-_See code: [src/commands/select-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-project.ts)_
+_See code: [src/commands/select-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/select-target.ts)_
 
-## `thief current-project`
+## `thief current-target`
 
-Your active project
+Your active target
 
 ```
 USAGE
-  $ thief current-project
+  $ thief current-target
 
 OUTPUT
-Your active project is my-project-1
+Your active target is my-target-1
 ```
 
-_See code: [src/commands/current-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/current-project.ts)_
+_See code: [src/commands/current-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/current-target.ts)_
 
-## `thief delete-project`
+## `thief delete-target`
 
-Delete your project
+Delete your target
 
 ```
 USAGE
-  $ thief delete-project
+  $ thief delete-target
 
 OPTIONS
-  --name=Project Name
+  --name=Target Name
 
 OUTPUT
-? Select a project 
-❯ my-project-1 
-  my-project-2
-  my-project-3
+? Select a target 
+❯ my-target-1 
+  my-target-2
+  my-target-3
 ```
 
-_See code: [src/commands/delete-project.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-project.ts)_
+_See code: [src/commands/delete-target.ts](https://github.com/BagusAK95/thief-cli/blob/v0.0.1/src/commands/delete-target.ts)_
 
 ## `thief test`
 

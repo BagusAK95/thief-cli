@@ -1,5 +1,5 @@
 import {Command} from '@oclif/command'
-import {IProject} from '../interfaces/main';
+import {ITarget} from '../interfaces/main';
 import {cli} from 'cli-ux';
 import chalk from 'chalk'
 import Helper from '../../src/class/helper'
@@ -15,21 +15,21 @@ export default class Test extends Command {
   async run(uri?:string) {
     cli.action.stop()
 
-    const project:IProject = this.helper.loadYaml(`./${this.helper.getProp('project')}.yml`)
-    if (uri) project.target.uri = uri
+    const target:ITarget = this.helper.loadYaml(`./${this.helper.getProp('target')}.yml`)
+    if (uri) target.target.uri = uri
     
-    this.log(`\nTry to stealing ${project.target.uri}\n`)
-    switch (project.scrapingMode) {
+    this.log(`\nTry to stealing ${target.target.uri}\n`)
+    switch (target.scrapingMode) {
       case "toDetail":
-        this.stealingToDetail(project).then((html) => {
-          if (project.nextPage) {
-            const next = cheerio(project.nextPage.selector, html).attr(project.nextPage.attribute)
+        this.stealingToDetail(target).then((html) => {
+          if (target.nextPage) {
+            const next = cheerio(target.nextPage.selector, html).attr(target.nextPage.attribute)
             if (next) {
-              if (!project.interval) {
+              if (!target.interval) {
                 this.run(next)
               } else {
                 cli.action.start('Taking a break')
-                this.helper.sleep(Number(project.interval)).then(() => {
+                this.helper.sleep(Number(target.interval)).then(() => {
                   this.run(next)
                 })
               }
@@ -39,15 +39,15 @@ export default class Test extends Command {
 
         break;
       default:
-        this.stealingThisPage(project).then((html) => {
-          if (project.nextPage) {
-            const next = cheerio(project.nextPage.selector, html).attr(project.nextPage.attribute)
+        this.stealingThisPage(target).then((html) => {
+          if (target.nextPage) {
+            const next = cheerio(target.nextPage.selector, html).attr(target.nextPage.attribute)
             if (next) {
-              if (!project.interval) {            
+              if (!target.interval) {            
                 this.run(next)
               } else {
                 cli.action.start('Taking a break')
-                this.helper.sleep(Number(project.interval)).then(() => {
+                this.helper.sleep(Number(target.interval)).then(() => {
                   this.run(next)
                 })
               }
@@ -59,10 +59,10 @@ export default class Test extends Command {
     }
   }
 
-  async stealingThisPage(project:IProject): Promise<{}> {
+  async stealingThisPage(target:ITarget): Promise<{}> {
     return new Promise((resolve) => {
-      rp(project.target).then((html:any) => {
-        cheerio(project.parent.selector, html).each((i:any, elem:any) => {
+      rp(target.target).then((html:any) => {
+        cheerio(target.parent.selector, html).each((i:any, elem:any) => {
           this.log(`/* ${i + 1} */`)
           const table = new Table({
             head: [
@@ -72,7 +72,7 @@ export default class Test extends Command {
             colWidths: [20, 100]
           });
   
-          project.childs.forEach(child => {
+          target.childs.forEach(child => {
             if (child.attribute) {
               table.push([ child.content, this.getAttribute(child.selector, child.attribute, elem) ])
             } else {
@@ -90,12 +90,12 @@ export default class Test extends Command {
     })
   }
 
-  async stealingToDetail(project:IProject): Promise<{}> {
+  async stealingToDetail(target:ITarget): Promise<{}> {
     return new Promise((resolve) => {
-      rp(project.target).then(async (html:any) => {
-        const result = cheerio(project.parent.selector, html)
+      rp(target.target).then(async (html:any) => {
+        const result = cheerio(target.parent.selector, html)
         for (let i = 0; i < result.length; i++) {
-          await this.promiseDetail(project, i, result[i])
+          await this.promiseDetail(target, i, result[i])
         }
 
         resolve(html)
@@ -105,7 +105,7 @@ export default class Test extends Command {
     })
   }
 
-  processDetail(project:IProject, i:number, elem:any) : Promise<{}> {
+  processDetail(target:ITarget, i:number, elem:any) : Promise<{}> {
     return new Promise((resolve) => {
       const table = new Table({
         head: [
@@ -115,13 +115,13 @@ export default class Test extends Command {
         colWidths: [20, 100]
       });
 
-      if (project.parent.attribute) {
-        table.push([ 'source', elem.attribs[project.parent.attribute] ])
+      if (target.parent.attribute) {
+        table.push([ 'source', elem.attribs[target.parent.attribute] ])
 
-        rp(elem.attribs[project.parent.attribute]).then((html:any) => {
+        rp(elem.attribs[target.parent.attribute]).then((html:any) => {
           this.log(`/* ${i + 1} */`)
           
-          project.childs.forEach(child => {
+          target.childs.forEach(child => {
             if (child.attribute) {
               table.push([ child.content, this.getAttribute(child.selector, child.attribute, html) ])
             } else {
@@ -139,8 +139,8 @@ export default class Test extends Command {
     })
   }
   
-  async promiseDetail(project:IProject, i:number, item:any) {
-    await this.processDetail(project, i, item)
+  async promiseDetail(target:ITarget, i:number, item:any) {
+    await this.processDetail(target, i, item)
   }
 
   private getText(selector: string, elm:any): string {
