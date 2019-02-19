@@ -71,7 +71,6 @@ USAGE
 
 OUTPUT
   Description: this is for description
-  Successfully
 ```
 
 This command will generate a `my-target-3.yml`
