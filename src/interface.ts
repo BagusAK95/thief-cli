@@ -6,6 +6,7 @@ export interface IHelper {
     getChoises() : Array<IChoise>;
     sleep(ms: number): Promise<{}>;
     success(str:string): void;
+    getRegex(regex:RegExp, str:string): string;
 }
 
 export type format = 'string'|'number'|'date';
@@ -50,8 +51,8 @@ export interface ITarget {
         content: string,
         selector: string,
         attribute?: string,
-        regex?: string, //To do
-        group?: string, //To do
+        regex?: RegExp, //To do
+        group?: number, //To do
         format?: format, //To do
     }[],
     nextPage?: {

@@ -59,4 +59,26 @@ export default class Helper implements IHelper {
     public success(str:string): void {
         console.log(` ${chalk.greenBright('✔')}   Success: ${str}`)
     }
+
+    public getRegex(rgx:RegExp, str:string, grp:number = 0): string {
+        const result:Array<string> = [];
+        const regex:RegExp = new RegExp(rgx, 'gm');
+        
+        let m:any;
+        while ((m = regex.exec(str)) !== null) {
+            if (m.index === regex.lastIndex) {
+                regex.lastIndex++;
+            }
+            
+            m.forEach((match:string, groupIndex:string) => {
+                result.push(match);
+            });
+        }
+
+        if (result.length >= grp) {
+            return result[grp]
+        } else {
+            return ''
+        }
+    }
 }

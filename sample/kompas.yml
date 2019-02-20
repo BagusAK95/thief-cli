@@ -19,6 +19,8 @@ childs:
     -
         content: date
         selector: div.read__time
+        regex: (\d{1,4}\/\d{1,4}\/\d{1,4}, \d{1,4}\:\d{1,4})
+        group: 1
     -
         content: image
         selector: div.photo > img

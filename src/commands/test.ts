@@ -74,9 +74,9 @@ export default class Test extends Command {
   
           target.childs.forEach(child => {
             if (child.attribute) {
-              table.push([ child.content, this.getAttribute(child.selector, child.attribute, elem) ])
+              table.push([ child.content, this.getAttribute(child.selector, child.attribute, elem, child.regex, child.group) ])
             } else {
-              table.push([ child.content, this.getText(child.selector, elem)])
+              table.push([ child.content, this.getText(child.selector, elem, child.regex, child.group)])
             }
           })
   
@@ -123,9 +123,9 @@ export default class Test extends Command {
           
           target.childs.forEach(child => {
             if (child.attribute) {
-              table.push([ child.content, this.getAttribute(child.selector, child.attribute, html) ])
+              table.push([ child.content, this.getAttribute(child.selector, child.attribute, html, child.regex, child.group) ])
             } else {
-              table.push([ child.content, this.getText(child.selector, html)])
+              table.push([ child.content, this.getText(child.selector, html, child.regex, child.group)])
             }
           })
   
@@ -143,23 +143,35 @@ export default class Test extends Command {
     await this.processDetail(target, i, item)
   }
 
-  private getText(selector: string, elm:any): string {
+  private getText(selector: string, elm:any, regex?:RegExp, group?:number): string {
     const result = cheerio(selector, elm)
     if (result.length > 0) {
-      return result.map((i:any, elm:any) => {
+      const text = result.map((i:any, elm:any) => {
         return cheerio(elm).text().replace(/\s+/g,' ').trim()
       }).get().join(', ')
+
+      if (regex) {
+        return this.helper.getRegex(regex, text, group)
+      } else {
+        return text
+      }
     } else {
       return ''
     }
   }
 
-  private getAttribute(selector: string, attribute:string, elm:any): string {
+  private getAttribute(selector: string, attribute:string, elm:any, regex?:RegExp, group?:number): string {
     const result = cheerio(selector, elm)
     if (result.length > 0) {
-      return result.map((i:any, elm:any) => {
+      const text = result.map((i:any, elm:any) => {
         return cheerio(elm).attr(attribute).trim()
       }).get().join(', ')
+
+      if (regex) {
+        return this.helper.getRegex(regex, text, group)
+      } else {
+        return text
+      }
     } else {
       return ''
     }

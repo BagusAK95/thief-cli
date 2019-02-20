@@ -17,6 +17,8 @@ childs:
     -
         content: 'date'
         selector: 'div.jdl > div.date'
+        regex: (\d{1,4} .* \d{1,4}, \d{1,4}\:\d{1,4})
+        group: 1
     -
         content: 'author'
         selector: 'div.jdl > div.author'
