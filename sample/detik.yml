@@ -19,6 +19,10 @@ childs:
         selector: 'div.jdl > div.date'
         regex: (\d{1,4} .* \d{1,4}, \d{1,4}\:\d{1,4})
         group: 1
+        format:
+            type: date
+            dateFormat: DD MMMM YYYY, HH:mm
+            dateLocale: id
     -
         content: 'author'
         selector: 'div.jdl > div.author'

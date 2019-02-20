@@ -17,6 +17,7 @@
     "cli-ux": "^5.1.0",
     "inquirer": "^6.2.2",
     "js-yaml": "^3.12.1",
+    "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "tslib": "^1.9.3"
@@ -47,7 +48,16 @@
   ],
   "homepage": "https://github.com/BagusAK95/thief-cli",
   "keywords": [
-    "web", "scrap", "scraper", "scraping", "crawl", "crawler", "crawling", "cli", "typescript", "cheerio"
+    "web",
+    "scrap",
+    "scraper",
+    "scraping",
+    "crawl",
+    "crawler",
+    "crawling",
+    "cli",
+    "typescript",
+    "cheerio"
   ],
   "license": "MIT",
   "main": "lib/index.js",

@@ -9,7 +9,7 @@ export interface IHelper {
     getRegex(regex:RegExp, str:string): string;
 }
 
-export type format = 'string'|'number'|'date';
+export interface format { type: "number"|"date", dateFormat:string, dateLocale:string }
 export type scrapingMode = 'thisPage'|'toDetail';
 export type methodRequest = 'GET'|'POST'|'PUT'|'DELETE';
 export type saveAs = 'csv'|'json'|rdbms;

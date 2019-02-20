@@ -1,8 +1,10 @@
 import {Command} from '@oclif/command'
-import {ITarget} from '../interface';
+import {ITarget, format} from '../interface';
 import {cli} from 'cli-ux';
 import chalk from 'chalk'
 import Helper from '../helper'
+import { isNumber } from 'util';
+import * as moment from 'moment'
 const rp = require('request-promise')
 const cheerio = require('cheerio')
 const Table = require('cli-table')
@@ -74,9 +76,9 @@ export default class Test extends Command {
   
           target.childs.forEach(child => {
             if (child.attribute) {
-              table.push([ child.content, this.getAttribute(child.selector, child.attribute, elem, child.regex, child.group) ])
+              table.push([ child.content, this.getAttribute(child.selector, child.attribute, elem, child.regex, child.group, child.format) ])
             } else {
-              table.push([ child.content, this.getText(child.selector, elem, child.regex, child.group)])
+              table.push([ child.content, this.getText(child.selector, elem, child.regex, child.group, child.format)])
             }
           })
   
@@ -123,9 +125,9 @@ export default class Test extends Command {
           
           target.childs.forEach(child => {
             if (child.attribute) {
-              table.push([ child.content, this.getAttribute(child.selector, child.attribute, html, child.regex, child.group) ])
+              table.push([ child.content, this.getAttribute(child.selector, child.attribute, html, child.regex, child.group, child.format) ])
             } else {
-              table.push([ child.content, this.getText(child.selector, html, child.regex, child.group)])
+              table.push([ child.content, this.getText(child.selector, html, child.regex, child.group, child.format)])
             }
           })
   
@@ -143,7 +145,7 @@ export default class Test extends Command {
     await this.processDetail(target, i, item)
   }
 
-  private getText(selector: string, elm:any, regex?:RegExp, group?:number): string {
+  private getText(selector: string, elm:any, regex?:RegExp, group?:number, format?:format): any {
     const result = cheerio(selector, elm)
     if (result.length > 0) {
       const text = result.map((i:any, elm:any) => {
@@ -151,16 +153,16 @@ export default class Test extends Command {
       }).get().join(', ')
 
       if (regex) {
-        return this.helper.getRegex(regex, text, group)
+        return this.formatData(this.helper.getRegex(regex, text, group), format)
       } else {
-        return text
+        return this.formatData(text, format)
       }
     } else {
       return ''
     }
   }
 
-  private getAttribute(selector: string, attribute:string, elm:any, regex?:RegExp, group?:number): string {
+  private getAttribute(selector: string, attribute:string, elm:any, regex?:RegExp, group?:number, format?:format): any {
     const result = cheerio(selector, elm)
     if (result.length > 0) {
       const text = result.map((i:any, elm:any) => {
@@ -168,12 +170,31 @@ export default class Test extends Command {
       }).get().join(', ')
 
       if (regex) {
-        return this.helper.getRegex(regex, text, group)
+        return this.formatData(this.helper.getRegex(regex, text, group), format)
       } else {
-        return text
+        return this.formatData(text, format)
       }
     } else {
       return ''
+    }
+  }
+
+  private formatData(str:string, format?:format): any {
+    if (format) {
+      switch (format.type) {
+        case "number":
+          if (isNumber(str)) {
+            return Number(str)
+          } else {
+            return str
+          }
+        case "date":
+          return moment(str, format.dateFormat).locale(format.dateLocale).format('YYYY-MM-DD HH:mm:ss')
+        default:
+          return str
+      }   
+    } else {
+      return str
     }
   }
 }
