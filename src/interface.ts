@@ -1,14 +1,3 @@
-export interface IHelper {
-    loadYaml(file: string): any;
-    dumpYaml(file: string, object: any): void;
-    setProp(prop : string, value : string) : void;
-    getProp(prop : string) : Json;
-    getChoises() : Array<IChoise>;
-    sleep(ms: number): Promise<{}>;
-    success(str:string): void;
-    getRegex(regex:RegExp, str:string): string;
-}
-
 export interface format { type: "string"|"number"|"date", dateFormat?:string, dateLocale?:string }
 export type scrapingMode = 'thisPage'|'toDetail';
 export type methodRequest = 'GET'|'POST'|'PUT'|'DELETE';

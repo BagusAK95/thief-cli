@@ -1,10 +1,10 @@
-import { IHelper, JsonObject, Json, IChoise } from "./interface";
+import { JsonObject, Json, IChoise } from "./interface";
 import chalk from 'chalk';
 const yaml = require("js-yaml");
 const fs = require("fs");
 const os = require("os");
 
-export default class Helper implements IHelper {
+export default class Helper {
     public loadYaml(file : string) : any {
         if (fs.existsSync(file)) {
             return yaml.safeLoad(fs.readFileSync(file, "utf8"));
