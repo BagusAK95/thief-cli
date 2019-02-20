@@ -31,7 +31,7 @@ export default class Init extends Command {
       }
   
       this.helper.dumpYaml(`./${args.targetName}.yml`, template)
-      this.log(`Successfully`)
+      this.helper.success(`Target created`)
     } else {
       this.error('targetName is required')
     }

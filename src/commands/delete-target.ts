@@ -41,10 +41,10 @@ export default class SelectTarget extends Command {
   }
 
   async confirm(target:string) {
-    const yes = await cli.confirm('Are you sure ? (Y/N)')
+    const yes = await cli.confirm('Are you sure ? (y/n)')
     if (yes) {
       fs.unlink(`./${target}.yml`, (err:any) => {
-        this.log(`Successfully`)
+        this.helper.success(`Target deleted `)
       })
     }
   }

@@ -1,13 +1,14 @@
 export interface IHelper {
     loadYaml(file: string): any;
     dumpYaml(file: string, object: any): void;
-    statYaml(file: string): Promise<JsonObject>;
     setProp(prop : string, value : string) : void;
     getProp(prop : string) : Json;
     getChoises() : Array<IChoise>;
     sleep(ms: number): Promise<{}>;
+    success(str:string): void;
 }
 
+export type format = 'string'|'number'|'date';
 export type scrapingMode = 'thisPage'|'toDetail';
 export type methodRequest = 'GET'|'POST'|'PUT'|'DELETE';
 export type saveAs = 'csv'|'json'|rdbms;
@@ -48,9 +49,10 @@ export interface ITarget {
     childs: {
         content: string,
         selector: string,
-        attribute?: string
-        regexCode?: string //To do
-        regexGroup?: string //To do
+        attribute?: string,
+        regex?: string, //To do
+        group?: string, //To do
+        format?: format, //To do
     }[],
     nextPage?: {
         selector: string,

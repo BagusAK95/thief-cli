@@ -1,23 +1,21 @@
-import { IHelper, JsonObject, Json, JsonArray, IChoise } from "./interface";
+import { IHelper, JsonObject, Json, IChoise } from "./interface";
+import chalk from 'chalk';
 const yaml = require("js-yaml");
 const fs = require("fs");
 const os = require("os");
 
 export default class Helper implements IHelper {
     public loadYaml(file : string) : any {
-        return yaml.safeLoad(fs.readFileSync(file, "utf8"));
+        if (fs.existsSync(file)) {
+            return yaml.safeLoad(fs.readFileSync(file, "utf8"));
+        } else {
+            console.log(` ${chalk.yellowBright('›')}   Warning: Please select your target first`)
+            throw 'Please select your target first'
+        }
     }
 
     public dumpYaml(file : string, object : any) : void {
         fs.writeFileSync(file, yaml.safeDump(object, { indent: 4, lineWidth: 150 }), "utf8");
-    }
-
-    public statYaml(file:string): Promise<JsonObject> {
-        return new Promise((resolve) => {
-            fs.stat(file, (err:any, stats:any) => {
-                resolve(stats)
-            })
-        });
     }
 
     public setProp(prop : string, value : string) : void {
@@ -56,5 +54,9 @@ export default class Helper implements IHelper {
 
     public sleep(ms:number) {
         return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    public success(str:string): void {
+        console.log(` ${chalk.greenBright('✔')}   Success: ${str}`)
     }
 }

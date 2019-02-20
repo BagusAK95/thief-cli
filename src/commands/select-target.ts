@@ -24,7 +24,7 @@ export default class SelectTarget extends Command {
         choices: choices,
       }])
       
-      this.log(`Successfully`)
+      this.helper.success(`Target selected`)
       this.helper.setProp('target', responses.target)
     } else {
       const choice = choices.filter(function (obj) {
@@ -32,7 +32,7 @@ export default class SelectTarget extends Command {
       })
 
       if (choice.length) { 
-        this.log(`Successfully`)
+        this.helper.success(`Target selected`)
         this.helper.setProp('target', target)
       } else {
         this.error(`Target not found`)
