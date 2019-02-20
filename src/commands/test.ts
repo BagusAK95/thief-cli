@@ -189,7 +189,9 @@ export default class Test extends Command {
             return str
           }
         case "date":
-          return moment(str, format.dateFormat).locale(format.dateLocale).format('YYYY-MM-DD HH:mm:ss')
+          const dateFormat = format.dateFormat || 'YYYY-MM-DD HH:mm:ss'
+          const dateLocale = format.dateLocale || 'id'
+          return moment(str, dateFormat).locale(dateLocale).format('YYYY-MM-DD HH:mm:ss')
         default:
           return str
       }   
