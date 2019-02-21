@@ -115,16 +115,16 @@ export default class Test extends Command {
         table.push(["source", elem.attribs[target.parent.attribute]]);
 
         rp(elem.attribs[target.parent.attribute])
-          .then((elem: any) => {
+          .then((html: any) => {
             this.log(`/* ${i + 1} */`);
 
             target.childs.forEach(child => {
-              table.push([child.content, this.getContent(child, elem)]);
+              table.push([child.content, this.getContent(child, html)]);
             });
 
             this.log(table.toString());
 
-            resolve(elem);
+            resolve(html);
           })
           .catch((err: any) => {
             this.error(err);
