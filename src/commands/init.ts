@@ -1,39 +1,39 @@
-import {Command} from '@oclif/command'
-import {ITarget} from '../interface';
-import Helper from '../helper'
-import cli from 'cli-ux'
+import { Command } from "@oclif/command";
+import { ITarget } from "../interface";
+import Helper from "../helper";
+import cli from "cli-ux";
 
 export default class Init extends Command {
-  private helper = new Helper()
+  private helper = new Helper();
 
-  static description = 'set up new target'
-  static args = [{name: 'targetName'}]
+  static description = "set up new target";
+  static args = [{ name: "targetName" }];
 
   async run() {
-    const {args} = this.parse(Init)
-    const desc = await cli.prompt('Description')
+    const { args } = this.parse(Init);
+    const desc = await cli.prompt("Description");
 
     if (args.targetName) {
-      const template:ITarget = {
+      const template: ITarget = {
         description: desc,
         target: {
-          uri: '',
+          uri: ""
         },
         parent: {
-          selector: '',
+          selector: ""
         },
         childs: [
           {
-            content: '',
-            selector: '',
-          },
+            content: "",
+            selector: ""
+          }
         ]
-      }
-  
-      this.helper.dumpYaml(`./${args.targetName}.yml`, template)
-      this.helper.success(`Target created`)
+      };
+
+      this.helper.dumpYaml(`./${args.targetName}.yml`, template);
+      this.helper.success(`Target created`);
     } else {
-      this.error('targetName is required')
+      this.error("targetName is required");
     }
   }
 }
