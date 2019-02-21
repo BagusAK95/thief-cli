@@ -1,16 +1,7 @@
 export interface format { type: "string"|"number"|"date", dateFormat?:string, dateLocale?:string }
 export type scrapingMode = 'thisPage'|'toDetail';
 export type methodRequest = 'GET'|'POST'|'PUT'|'DELETE';
-export type saveAs = 'csv'|'json'|rdbms;
-export interface rdbms {
-    client: string,
-    host: string,
-    port: number,
-    username: string,
-    password: string,
-    database: string,
-    table: string
-}
+export type saveAs = 'csv'|'json';
 export interface ITarget {
     description: string,
     target: {
