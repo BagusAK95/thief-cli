@@ -18,7 +18,6 @@ export interface format {
   dateLocale?: string;
 }
 export type scrapingMode = "thisPage" | "toDetail";
-export type methodRequest = "GET" | "POST" | "PUT" | "DELETE";
 export type saveAs = "csv" | "json";
 export interface childs {
   content: string;
@@ -32,19 +31,12 @@ export interface ITarget {
   description: string;
   target: {
     uri: string;
-    method?: methodRequest;
     timeout?: number;
     qs?: {
       [x: string]: string;
     };
     headers?: {
       [x: string]: string;
-    };
-    body?: {
-      [x: string]: Json;
-    };
-    formData?: {
-      [x: string]: Json;
     };
   };
   scrapingMode?: scrapingMode;
