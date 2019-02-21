@@ -10,8 +10,8 @@ Thief CLI
 * [Introduction](#introduction)
 * [Installation](#installation)
 * [Commands](#commands)
-* [Documentation of `.yml` file](#https://github.com/BagusAK95/thief-cli-docs)
-* [Examples](#https://github.com/BagusAK95/thief-cli-docs/tree/master/examples)
+* [Documentation of `.yml` file](https://github.com/BagusAK95/thief-cli-docs)
+* [Examples](https://github.com/BagusAK95/thief-cli-docs/tree/master/examples)
 <!-- tocstop -->
 
 # Introduction
