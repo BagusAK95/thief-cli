@@ -23,7 +23,7 @@ export default class Test extends Command {
     if (uri) target.target.uri = uri;
 
     this.log(`\nTry to stealing ${target.target.uri}\n`);
-    switch (target.scrapingMode) {
+    switch (target.stealingMode) {
       case "toDetail":
         this.stealingToDetail(target).then(html => {
           this.nextPage(target, html);

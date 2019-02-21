@@ -17,7 +17,7 @@ export interface format {
   dateFormat?: string;
   dateLocale?: string;
 }
-export type scrapingMode = "thisPage" | "toDetail";
+export type stealingMode = "thisPage" | "toDetail";
 export type saveAs = "csv" | "json";
 export interface childs {
   content: string;
@@ -39,7 +39,7 @@ export interface ITarget {
       [x: string]: string;
     };
   };
-  scrapingMode?: scrapingMode;
+  stealingMode?: stealingMode;
   interval?: number;
   parent: {
     selector: string;
