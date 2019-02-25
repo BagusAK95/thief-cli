@@ -1,6 +1,6 @@
 {
   "name": "thief-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "“BagusAK95” @BagusAK95",
   "bin": {
     "thief": "./bin/run"
