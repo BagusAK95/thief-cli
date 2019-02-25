@@ -152,7 +152,7 @@ USAGE
   $ thief test
 
 OUTPUT
-  Try to stealing https://demo.website.com/
+  Try to stealing https://demo.website.com/1... done
 
   ┌───────────────┬────────────────────────────────────────────────────────────────────────────────────┐
   │ Content       │ Result                                                                             │
