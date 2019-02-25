@@ -1,8 +1,9 @@
-import { JsonObject, Json, IChoise } from "./interface";
+import { JsonObject, Json, IChoise, JsonArray } from "./interface";
 import chalk from "chalk";
 const yaml = require("js-yaml");
 const fs = require("fs");
 const os = require("os");
+const converter = require("json-2-csv");
 
 export default class Helper {
   public loadYaml(file: string): any {
@@ -22,6 +23,31 @@ export default class Helper {
       yaml.safeDump(object, { indent: 4, lineWidth: 150 }),
       "utf8"
     );
+  }
+
+  public dumpJson(file: string, object: Json): void {
+    fs.writeFileSync(`${file}.json`, JSON.stringify(object), "utf8");
+  }
+
+  public dumpCsv(file: string, object: JsonArray) {
+    const options = {
+      delimiter: {
+        wrap: '"', // Double Quote (") character
+        field: ",", // Comma field delimiter
+        eol: "\n" // Newline delimiter
+      },
+      prependHeader: true,
+      sortHeader: false,
+      excelBOM: true,
+      trimHeaderValues: true,
+      trimFieldValues: true
+    };
+
+    const callback = (err:any, csv:any) => {
+      fs.writeFileSync(`${file}.csv`, csv, "utf8");
+    };
+
+    converter.json2csv(object, callback, options);
   }
 
   public setProp(prop: string, value: string): void {

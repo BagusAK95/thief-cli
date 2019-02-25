@@ -50,7 +50,12 @@ export interface ITarget {
     selector: string;
     attribute: string;
   };
-  saveAs?: saveAs; //To do
+  saveAs?: saveAs;
+}
+
+export interface IResult {
+  data: Array<JsonObject>;
+  next?: string;
 }
 
 export interface IChoise {

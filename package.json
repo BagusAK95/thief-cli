@@ -1,6 +1,6 @@
 {
   "name": "thief-cli",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "author": "“BagusAK95” @BagusAK95",
   "bin": {
     "thief": "./bin/run"
@@ -17,6 +17,7 @@
     "cli-ux": "^5.1.0",
     "inquirer": "^6.2.2",
     "js-yaml": "^3.12.1",
+    "json-2-csv": "^3.4.1",
     "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
