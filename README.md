@@ -175,6 +175,10 @@ Start stealing data
 ```
 USAGE
   $ thief start
+OUTPUT
+  Try to stealing https://demo.website.com/1... done
+  Try to stealing https://demo.website.com/2... done
+  Try to stealing https://demo.website.com/3... ⣻
 ```
 
 <!-- commandsstop -->
