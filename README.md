@@ -32,7 +32,7 @@ This is the preferred method to install thief-cli, as it will always install the
 <!-- commands -->
 * [`thief version`](#thief-version)
 * [`thief update`](#thief-update)
-* [`thief init [Target Name]`](#thief-init)
+* [`thief init [Target Name]`](#thief-init-target-name)
 * [`thief list-target`](#thief-list-target)
 * [`thief select-target`](#thief-select-target)
 * [`thief current-target`](#thief-current-target)
@@ -177,6 +177,7 @@ Start stealing data
 ```
 USAGE
   $ thief start
+  
 OUTPUT
   Try to stealing https://demo.website.com/1... done
   Try to stealing https://demo.website.com/2... done
