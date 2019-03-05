@@ -31,7 +31,6 @@ This is the preferred method to install thief-cli, as it will always install the
 # Commands
 <!-- commands -->
 * [`thief version`](#thief-version)
-* [`thief update`](#thief-update)
 * [`thief init [Target Name]`](#thief-init-target-name)
 * [`thief list-target`](#thief-list-target)
 * [`thief select-target`](#thief-select-target)
@@ -50,15 +49,6 @@ USAGE
 
 OUTPUT
   thief-cli/0.0.1 darwin-x64 node-v8.14.0
-```
-
-## thief update
-
-Upgrade to last version
-
-```
-USAGE
-  $ thief update
 ```
 
 ## thief init [Target Name]

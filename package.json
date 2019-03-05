@@ -10,7 +10,7 @@
     "@oclif/command": "^1.5.8",
     "@oclif/config": "^1.12.4",
     "@oclif/plugin-help": "^2.1.6",
-    "@oclif/plugin-update": "^1.3.9",
+    "@oclif/plugin-warn-if-update-available": "^1.7.0",
     "chalk": "^2.4.2",
     "cheerio": "^1.0.0-rc.2",
     "cli-table": "^0.3.1",
@@ -69,8 +69,12 @@
     "bin": "thief",
     "plugins": [
       "@oclif/plugin-help",
-      "@oclif/plugin-update"
-    ]
+      "@oclif/plugin-warn-if-update-available"
+    ],
+    "warn-if-update-available": {
+      "timeoutInDays": 7,
+      "message": "<%= config.name %> update available from <%= chalk.yellowBright(config.version) %> to <%= chalk.greenBright(latest) %>.\nPlease install the latest <%= config.name %> version from NPM : <%= chalk.blueBright('npm install -g thief-cli') %>"
+    }
   },
   "repository": "BagusAK95/thief-cli",
   "scripts": {
