@@ -1,6 +1,6 @@
 {
   "name": "thief-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "“BagusAK95” @BagusAK95",
   "bin": {
     "thief": "./bin/run"
@@ -73,7 +73,7 @@
     ],
     "warn-if-update-available": {
       "timeoutInDays": 1,
-      "message": "<%= config.name %> update available from <%= chalk.yellowBright(config.version) %> to <%= chalk.greenBright(latest) %>.\nPlease install the latest <%= config.name %> version from NPM : <%= chalk.blueBright('npm install -g thief-cli') %>"
+      "message": "<%= config.name %> update available from <%= chalk.yellowBright(config.version) %> to <%= chalk.greenBright(latest) %>"
     }
   },
   "repository": "BagusAK95/thief-cli",
