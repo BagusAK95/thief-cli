@@ -17,6 +17,7 @@ export interface format {
   dateFormat?: string;
   dateLocale?: string;
 }
+export type webContent = "static" | "dinamic";
 export type stealingMode = "thisPage" | "toDetail";
 export type saveAs = "csv" | "json";
 export interface childs {
@@ -39,6 +40,8 @@ export interface ITarget {
       [x: string]: string;
     };
   };
+  webContent?: webContent;
+  autoScroll?: boolean;
   stealingMode?: stealingMode;
   interval?: number;
   parent: {

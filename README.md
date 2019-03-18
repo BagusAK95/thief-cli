@@ -10,7 +10,7 @@ Thief CLI
 * [Introduction](#introduction)
 * [Installation](#installation)
 * [Commands](#commands)
-* [Documentation of Yaml Configuration](https://github.com/BagusAK95/thief-cli-docs/blob/master/README.md)
+* [Yaml Configuration](https://github.com/BagusAK95/thief-cli-docs/blob/master/README.md)
 * [Examples](https://github.com/BagusAK95/thief-cli-docs/tree/master/examples)
 <!-- tocstop -->
 

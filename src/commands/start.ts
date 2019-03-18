@@ -3,10 +3,12 @@ import { ITarget, JsonObject, Json } from "../interface";
 import { cli } from "cli-ux";
 import Helper from "../helper";
 import ScrapingStatic from "../scrapingStatic";
+import scrapingDinamic from "../scrapingDinamic";
 
 export default class Start extends Command {
   private helper = new Helper();
   private scrapingStatic = new ScrapingStatic();
+  private scrapingDinamic = new scrapingDinamic();
   private target: string = "";
   private result: Array<JsonObject> = [];
 
@@ -23,40 +25,83 @@ export default class Start extends Command {
   async start(target: ITarget) {
     cli.action.start(`Try to stealing ${target.target.uri}`);
 
-    this.scrapingStatic
-      .run(target)
-      .then(data => {
-        cli.action.stop();
+    switch (target.webContent) {
+      case "dinamic":
+        this.scrapingDinamic
+          .run(target)
+          .then(data => {
+            cli.action.stop();
 
-        this.result = this.result.concat(data.data);
+            this.result = this.result.concat(data.data);
 
-        if (data.next) {
-          target.target.uri = data.next;
+            if (data.next) {
+              target.target.uri = data.next;
 
-          if (target.interval) {
-            cli.action.start("Taking a break");
+              if (target.interval) {
+                cli.action.start("Taking a break");
 
-            this.helper.sleep(Number(target.interval)).then(() => {
-              cli.action.stop();
+                this.helper.sleep(Number(target.interval)).then(() => {
+                  cli.action.stop();
 
-              this.start(target);
-            });
-          } else {
-            this.start(target);
-          }
-        } else {
-          switch (target.saveAs) {
-            case "csv":
-              this.helper.dumpCsv(this.target, this.result);
-              break;
-            default:
-              this.helper.dumpJson(this.target, this.result);
-              break;
-          }
-        }
-      })
-      .catch(err => {
-        this.error(err.message);
-      });
+                  this.start(target);
+                });
+              } else {
+                this.start(target);
+              }
+            } else {
+              switch (target.saveAs) {
+                case "csv":
+                  this.helper.dumpCsv(this.target, this.result);
+                  break;
+                default:
+                  this.helper.dumpJson(this.target, this.result);
+                  break;
+              }
+            }
+          })
+          .catch(err => {
+            this.error(err.message);
+          });
+
+        break;
+      default:
+        this.scrapingStatic
+          .run(target)
+          .then(data => {
+            cli.action.stop();
+
+            this.result = this.result.concat(data.data);
+
+            if (data.next) {
+              target.target.uri = data.next;
+
+              if (target.interval) {
+                cli.action.start("Taking a break");
+
+                this.helper.sleep(Number(target.interval)).then(() => {
+                  cli.action.stop();
+
+                  this.start(target);
+                });
+              } else {
+                this.start(target);
+              }
+            } else {
+              switch (target.saveAs) {
+                case "csv":
+                  this.helper.dumpCsv(this.target, this.result);
+                  break;
+                default:
+                  this.helper.dumpJson(this.target, this.result);
+                  break;
+              }
+            }
+          })
+          .catch(err => {
+            this.error(err.message);
+          });
+
+        break;
+    }
   }
 }
