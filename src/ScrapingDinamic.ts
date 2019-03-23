@@ -19,7 +19,10 @@ export default class scrapingDinamic {
 
   private nextPage(html: any, nextPage?: JsonObject): any {
     if (nextPage) {
-      return cheerio(nextPage.selector, html).attr(nextPage.attribute);
+      let result = cheerio(nextPage.selector, html).attr(nextPage.attribute);
+      if (nextPage.joinText)
+        result = (nextPage.joinText as string).replace("$(result)", result);
+      return result;
     }
   }
 
@@ -103,7 +106,7 @@ export default class scrapingDinamic {
     return new Promise(async (resolve, reject) => {
       const obj: JsonObject = {};
       obj.source = elem.attribs[target.parent.attribute || "href"];
-      
+
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
 
@@ -116,12 +119,12 @@ export default class scrapingDinamic {
             obj[child.content] = this.getContent(child, html);
           });
 
-          browser.close()
+          browser.close();
 
           resolve(obj);
         })
         .catch((err: any) => {
-          browser.close()
+          browser.close();
 
           reject(err);
         });
@@ -157,9 +160,16 @@ export default class scrapingDinamic {
       if (attribute) {
         text = result
           .map((i: any, elm: any) => {
-            return cheerio(elm)
+            const result = cheerio(elm)
               .attr(attribute)
               .trim();
+            if (!result) {
+              return cheerio(elm)
+                .attr("data-" + attribute)
+                .trim();
+            } else {
+              return result;
+            }
           })
           .get()
           .join(", ");
@@ -174,6 +184,9 @@ export default class scrapingDinamic {
           .get()
           .join(", ");
       }
+
+      if (child.joinText)
+        text = (child.joinText as string).replace("$(result)", text);
 
       if (regex) {
         return this.formatData(

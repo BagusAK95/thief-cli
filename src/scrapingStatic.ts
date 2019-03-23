@@ -19,7 +19,10 @@ export default class ScrapingStatic {
 
   private nextPage(html: any, nextPage?: JsonObject): any {
     if (nextPage) {
-      return cheerio(nextPage.selector, html).attr(nextPage.attribute);
+      let result = cheerio(nextPage.selector, html).attr(nextPage.attribute);
+      if (nextPage.joinText)
+        result = (nextPage.joinText as string).replace("$(result)", result);
+      return result;
     }
   }
 
@@ -104,9 +107,16 @@ export default class ScrapingStatic {
       if (attribute) {
         text = result
           .map((i: any, elm: any) => {
-            return cheerio(elm)
+            const result = cheerio(elm)
               .attr(attribute)
               .trim();
+            if (!result) {
+              return cheerio(elm)
+                .attr("data-" + attribute)
+                .trim();
+            } else {
+              return result;
+            }
           })
           .get()
           .join(", ");
@@ -121,6 +131,9 @@ export default class ScrapingStatic {
           .get()
           .join(", ");
       }
+
+      if (child.joinText)
+        text = (child.joinText as string).replace("$(result)", text);
 
       if (regex) {
         return this.formatData(

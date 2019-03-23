@@ -27,6 +27,7 @@ export interface childs {
   regex?: RegExp;
   group?: number;
   format?: format;
+  joinText?: string;
 }
 export interface ITarget {
   description: string;
@@ -52,6 +53,7 @@ export interface ITarget {
   nextPage?: {
     selector: string;
     attribute: string;
+    joinText: string;
   };
   saveAs?: saveAs;
 }
